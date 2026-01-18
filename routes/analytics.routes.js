@@ -27,3 +27,21 @@ AnalyticsRoutes.get("/cancelled-orders",(req,res)=>{
 
     }
 })
+
+AnalyticsRoutes.get("/shipped",(req,res)=>{
+    const data = readData();
+    if (!data) {
+        return res.status(500).json({ message: "Data Unavailable" })
+    }
+    const shippedOrders = data.orders.filter((o)=>o.status === "shipped");
+    if(shippedOrders.length===0){
+        return res.status(400).json({message:"There are no shipped orders"})
+    }
+    let count = 0
+    shippedOrders.forEach((order)=>{
+        count++
+    })
+    res.status(200).json({message:"All shipped orders with count",count,shippedOrders})
+
+    
+})

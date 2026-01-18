@@ -3,7 +3,7 @@ import express from "express"
 import fs from "fs"
 export const OrdersRoutes = express.Router();
 
-function readData() {
+export function readData() {
     try {
         const data = fs.readFileSync("./db.json", "utf-8")
         return JSON.parse(data)
@@ -12,7 +12,7 @@ function readData() {
     }
 }
 
-function writeData(data) {
+export function writeData(data) {
     fs.writeFileSync("./db.json", JSON.stringify(data, null, 2))
 }
 

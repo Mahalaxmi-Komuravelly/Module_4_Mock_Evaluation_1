@@ -42,6 +42,13 @@ AnalyticsRoutes.get("/shipped",(req,res)=>{
         count++
     })
     res.status(200).json({message:"All shipped orders with count",count,shippedOrders})
+})
+AnalyticsRoutes.get("/total-revenue/:productId",(req,res)=>{
+    const data = readData();
+    if (!data) {
+        return res.status(500).json({ message: "Data Unavailable" })
+    }
+    const id = Number(req.params.productId);
 
-    
+    const  requiredOrders = data.orders.filter((o)=>o.id!==id);
 })

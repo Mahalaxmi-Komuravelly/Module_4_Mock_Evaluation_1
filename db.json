@@ -15,6 +15,14 @@
       "totalAmount": 40000,
       "status": "placed",
       "createdAt": "2026-01-18"
+    },
+    {
+      "id": 2,
+      "productId": 1,
+      "quantity": 4,
+      "totalAmount": 80000,
+      "status": "placed",
+      "createdAt": "2026-01-17"
     }
   ]
 }
